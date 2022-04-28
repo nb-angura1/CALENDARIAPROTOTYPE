@@ -24,7 +24,7 @@ public class Database {
             int currentLength = data.length();
             int padLength = rowWidth - currentLength;
             // TODO: Report an error if the data is too long for the record
-            if (currentLength > 10) {
+            if (currentLength > 101) {
                 System.out.print("ERROR! the data is too long for the record");
             } else {
                 //take in data and write to the file
@@ -61,7 +61,7 @@ public class Database {
     }
 
     public String getRecord(int rowNumber) {
-        return FileHandler.readLineAt(filename, (rowNumber -1) * (rowWidth+1));
+        return FileHandler.readLineAt(filename, (rowNumber * 9));
     }
 
     public int getRecordCount(String fileName) {
