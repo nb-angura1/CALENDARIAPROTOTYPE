@@ -19,17 +19,16 @@ public class FileHandler {
         }
     }
 
-    public static String readLineAt(String fileName, int startingAt) {
-        String msg = null;
-        try (RandomAccessFile rf = new RandomAccessFile(fileName, "r")) {
-            rf.seek(startingAt);
-            msg = rf.readLine();
-            return msg;
+    public static String readLineAt(String fileName, int start) {
+        // grab the line from position "start" in the file
+        try (RandomAccessFile rf = new RandomAccessFile(fileName, "rws")) {
+            rf.seek(start);
+            return rf.readLine();
         }
         catch (IOException e) {
             e.printStackTrace();
         }
-        return "nothing";
+        return null;
     }
 
     public static void writeLineAt(String fileName, String data, int start) {

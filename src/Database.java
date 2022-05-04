@@ -6,39 +6,29 @@ import java.io.PrintWriter;
 
 public class Database {
 
-    private String filename;
+    private String fileName;
     private int rowWidth;
     private int recordCount = 0;
 
-    public Database(String filename, int rowWidth) {
-        this.filename = filename;
+
+    public Database(String fileName, int rowWidth) {
+        this.fileName = fileName;
         this.rowWidth = rowWidth;
         //countRecords();
     }
 
     public void appendRecord(String data) {
         // TODO: Pad the data to the correct record width
-        try (FileWriter fw = new FileWriter(filename, true);
-             PrintWriter pw = new PrintWriter(fw);
-        ) {
             int currentLength = data.length();
             int padLength = rowWidth - currentLength;
-            // TODO: Report an error if the data is too long for the record
-            if (currentLength > 101) {
-                System.out.print("ERROR! the data is too long for the record");
-            } else {
-                //take in data and write to the file
-
-                String paddedData = data;
-                for (int i = 0; i < padLength; i++) {
-                    paddedData = paddedData + "x";
-                }
-                System.out.println(paddedData);
-                pw.println(paddedData);
+            if(data.length()<20){
+                String result = Padder.rightPadding(data,' ', 20);
+                FileHandler.appendLine(fileName,result);
+            } else{
+                FileHandler.appendLine(fileName, data);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+            // TODO: Report an error if the data is too long for the record
     }
 
      /*public void deleteRecord(int rowNumber) {
@@ -56,12 +46,12 @@ public class Database {
     }*/
 
     public void addRecord(String fileName, String input){
-
         FileHandler.appendLine(fileName,input);
     }
 
     public String getRecord(int rowNumber) {
-        return FileHandler.readLineAt(filename, (rowNumber * 9));
+        //TODO:something is wrong with this part
+        return FileHandler.readLineAt(fileName, rowNumber * (rowWidth+1));
     }
 
     public int getRecordCount(String fileName) {
