@@ -4,7 +4,7 @@ import java.io.RandomAccessFile;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 
-public class Database {
+public class Database { //database code, responsible for writing to, reading from and deleting records from the text file
 
     private String fileName;
     private int rowWidth;
