@@ -31,26 +31,25 @@ public class Database { //database code, responsible for writing to, reading fro
             // TODO: Report an error if the data is too long for the record
     }
 
-     /*public void deleteRecord(int rowNumber) {
-        try (FileWriter fw = new FileWriter(filename, true);
-             RandomAccessFile raf = new RandomAccessFile(filename, "rws");
+     public void deleteRecord(int rowNumber) {
+        try (FileWriter fw = new FileWriter(fileName, true);
+             RandomAccessFile raf = new RandomAccessFile(fileName, "rws");
         ) {
             raf.seek(rowNumber);
-            raf.write(getRecordCount(filename));
+            raf.write(getRecordCount(fileName));
             fw.write("      ");
         } catch (IOException e) {
             e.printStackTrace();
         }
         //remember to decrement record count
         recordCount = recordCount - 1;
-    }*/
+    }
 
     public void addRecord(String fileName, String input){
         FileHandler.appendLine(fileName,input);
     }
 
     public String getRecord(int rowNumber) {
-        //TODO:something is wrong with this part
         return FileHandler.readLineAt(fileName, rowNumber * (rowWidth+1));
     }
 
@@ -65,12 +64,10 @@ public class Database { //database code, responsible for writing to, reading fro
         }
         return count-1;
     }
-
-    //public boolean findRecord(String data) {
+    public boolean findRecord(String data) {
     // search for a record matching data
     // return true if found
     //int start = 0;
-
 }
 //}
 
