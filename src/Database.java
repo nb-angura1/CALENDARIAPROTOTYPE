@@ -19,19 +19,19 @@ public class Database { //database code, responsible for writing to, reading fro
 
     public void appendRecord(String data) {
         // TODO: Pad the data to the correct record width
-            int currentLength = data.length();
-            int padLength = rowWidth - currentLength;
-            if(data.length()<20){
-                String result = Padder.rightPadding(data,' ', 20);
-                FileHandler.appendLine(fileName,result);
-            } else{
-                FileHandler.appendLine(fileName, data);
-            }
+        int currentLength = data.length();
+        int padLength = rowWidth - currentLength;
+        if (data.length() < 20) {
+            String result = Padder.rightPadding(data, ' ', 20);
+            FileHandler.appendLine(fileName, result);
+        } else {
+            FileHandler.appendLine(fileName, data);
+        }
 
-            // TODO: Report an error if the data is too long for the record
+        // TODO: Report an error if the data is too long for the record
     }
 
-     public void deleteRecord(int rowNumber) {
+    public void deleteRecord(int rowNumber) {
         try (FileWriter fw = new FileWriter(fileName, true);
              RandomAccessFile raf = new RandomAccessFile(fileName, "rws");
         ) {
@@ -45,29 +45,34 @@ public class Database { //database code, responsible for writing to, reading fro
         recordCount = recordCount - 1;
     }
 
-    public void addRecord(String fileName, String input){
-        FileHandler.appendLine(fileName,input);
+    public void addRecord(String fileName, String input) {
+        FileHandler.appendLine(fileName, input);
     }
 
     public String getRecord(int rowNumber) {
-        return FileHandler.readLineAt(fileName, rowNumber * (rowWidth+1));
+        return FileHandler.readLineAt(fileName, rowNumber * (rowWidth + 1));
     }
 
     public int getRecordCount(String fileName) {
         int count = 1;
         String record = " ";
-        while (record!= null){
+        while (record != null) {
             record = getRecord(count);
             count++;
             record = getRecord(count);
             System.out.println(record);
         }
-        return count-1;
+        return count - 1;
     }
-    public boolean findRecord(String data) {
-    // search for a record matching data
-    // return true if found
-    //int start = 0;
-}
+
+    //public boolean findRecord(String data) {
+        // search for a record matching data
+        // return true if found
+        //String fileData = "";
+        // while (fileData null){
+
+        // }
 //}
+    }
+
 
