@@ -1,32 +1,43 @@
+import javax.swing.*;
 import java.util.Scanner;
 import java.lang.*;
 import java.io.*;
 public class Main {
     public static void main(String[] args) {
+        JFrame frame = new JFrame("Demo Frame");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        GUI calendarDisplay = new GUI(600,400);
+        frame.add(calendarDisplay);
+        frame.pack();
+        frame.setVisible(true);
+
         boolean day = true;
         Scanner input = new Scanner(System.in);
-        Database eventFile = new Database("N:\\computer science\\IB\\Java\\CALENDAR IA PROTOTYPE\\src\\events.txt", 21);
+        Database eventFile = new Database("N:\\computer science\\IB\\Java\\CALENDAR IA PROTOTYPE\\src\\events.txt", 21); //creates a new event file with a set data length
         //gives user the option of what they would like to do
-        System.out.println("What would you like to do?" +
-                "1) Enter new events" +
-                "2) View current events" +
-                "3)Exit.");
-        int num = input.nextInt();
-        if (num == 1) {
-            while (day) { //loops and keeps adding data until one day is completed
-                System.out.println("Enter the event to take place");
-                String event = input.nextLine();
-                int eventLength = event.length(); //find length of input for random file access
-                //System.out.println(eventLength);
-                //pads every event to the same length (100 characters) to allow for successful random file access
-                event = Padder.rightPadding(event, ' ', 10);
-                eventFile.appendRecord(event);
-                //System.out.println("padded event " + event);
 
-                System.out.println("Would you like to enter more events for today?");
+        System.out.println("What would you like to do?");
+        System.out.println("1)Enter new events");
+        System.out.println("2)View current events");
+        System.out.println("3)Exit.");
+
+        int num = input.nextInt();
+
+        if (num == 1) {
+            System.out.println("Enter 'no' in order to exit the program.");
+            while (day) { //loops and keeps adding data until one day is completed
+                System.out.println("Enter the event to take place.");
                 String answer = input.nextLine();
-                if (answer.equals("no")) {
-                    day = false;
+                System.out.println("okay");
+                if(answer.equals("no")){
+                    day =false;
+                }else {
+                    String event = answer;
+                    int eventLength = event.length(); //find length of input for random file access
+                    //pads every event to the same length (100 characters) to allow for successful random file access
+                    event = Padder.rightPadding(event, ' ', 20);
+                    eventFile.addRecord("N:\\computer science\\IB\\Java\\CALENDAR IA PROTOTYPE\\src\\events.txt", event);
+                    //System.out.println("padded event " + event);
                 }
             }
         } else if (num == 2) {
