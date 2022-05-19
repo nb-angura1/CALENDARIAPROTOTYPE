@@ -4,7 +4,7 @@ import java.lang.*;
 import java.io.*;
 public class Main {
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Demo Frame");
+        JFrame frame = new JFrame("Main");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         GUI calendarDisplay = new GUI(600,400);
         frame.add(calendarDisplay);
