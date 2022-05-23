@@ -1,14 +1,2 @@
-
 school              
-dinner              
-                    
-                    
-                    
-                    
-                    
-1                   
-1                   
-1                   
-                    
-                    
-                    
+home                

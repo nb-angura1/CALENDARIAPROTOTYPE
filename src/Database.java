@@ -45,7 +45,7 @@ public class Database { //database code, responsible for writing to, reading fro
         recordCount = recordCount - 1;
     }
 
-    public void addRecord(String fileName, String input) {
+    public void addRecord(String input) {
         FileHandler.appendLine(fileName, input);
     }
 

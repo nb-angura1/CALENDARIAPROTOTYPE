@@ -36,7 +36,7 @@ public class Main {
                     int eventLength = event.length(); //find length of input for random file access
                     //pads every event to the same length (100 characters) to allow for successful random file access
                     event = Padder.rightPadding(event, ' ', 20);
-                    eventFile.addRecord("N:\\computer science\\IB\\Java\\CALENDAR IA PROTOTYPE\\src\\events.txt", event);
+                    eventFile.addRecord(event);
                     //System.out.println("padded event " + event);
                 }
             }

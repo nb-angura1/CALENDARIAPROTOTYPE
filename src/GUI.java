@@ -33,7 +33,7 @@ public class GUI extends JPanel implements ActionListener {
         if(e.getSource() == add){
             GUIAddEvent test = new GUIAddEvent(600,400);
         }else if(e.getSource()==remove){
-
+            GUIRemoveEvent test2 = new GUIRemoveEvent(600,400);
         }else if(e.getSource()==exit){
 
         }
