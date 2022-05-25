@@ -44,6 +44,7 @@ public class GUIAddEvent extends JPanel implements ActionListener {
             newEvent = event.getText();
             newEvent = Padder.rightPadding(newEvent, ' ', 20);
             eventFile.addRecord(newEvent);
+            event.setText("");
             JOptionPane.showMessageDialog(this,"Event successfully added!");
         }
     }

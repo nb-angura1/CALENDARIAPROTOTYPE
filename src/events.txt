@@ -1,2 +1,10 @@
 school              
 home                
+home                
+hometime            
+dinner              
+dinner              
+food                
+meeting             
+home                
+lol                 

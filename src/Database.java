@@ -53,7 +53,7 @@ public class Database { //database code, responsible for writing to, reading fro
         return FileHandler.readLineAt(fileName, rowNumber * (rowWidth + 1));
     }
 
-    public int getRecordCount(String fileName) {
+    public int getRecordCount() {
         int count = 1;
         String record = " ";
         while (record != null) {
