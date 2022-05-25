@@ -32,11 +32,10 @@ public class Database { //database code, responsible for writing to, reading fro
     }
 
     public void deleteRecord(int rowNumber) {
-        try (FileWriter fw = new FileWriter(fileName, true);
+        try (FileWriter fw = new FileWriter(fileName, false);
              RandomAccessFile raf = new RandomAccessFile(fileName, "rws");
         ) {
             raf.seek(rowNumber);
-            raf.write(getRecordCount(fileName));
             fw.write("      ");
         } catch (IOException e) {
             e.printStackTrace();

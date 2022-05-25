@@ -31,6 +31,7 @@ public class GUIRemoveEvent extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==confirm){
+            eventFile.deleteRecord(2);
             JOptionPane.showMessageDialog(this,"Event successfully removed!");
         }
     }
