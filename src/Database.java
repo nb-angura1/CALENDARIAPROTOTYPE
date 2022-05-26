@@ -32,16 +32,7 @@ public class Database { //database code, responsible for writing to, reading fro
     }
 
     public void deleteRecord(int rowNumber) {
-        try (FileWriter fw = new FileWriter(fileName, false);
-             RandomAccessFile raf = new RandomAccessFile(fileName, "rws");
-        ) {
-            raf.seek(rowNumber);
-            fw.write("      ");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        //remember to decrement record count
-        recordCount = recordCount - 1;
+      FileHandler.writeLineAt(fileName,"#",(20*rowNumber)+1); //putting hashtag in the wrong place, should be at the end of the line instead
     }
 
     public void addRecord(String input) {

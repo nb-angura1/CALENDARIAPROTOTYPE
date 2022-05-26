@@ -21,9 +21,16 @@ public class FileHandler {
 
     public static String readLineAt(String fileName, int start) {
         // grab the line from position "start" in the file
+        String readData;
         try (RandomAccessFile rf = new RandomAccessFile(fileName, "rws")) {
             rf.seek(start);
-            return rf.readLine();
+            readData = rf.readLine();
+            //System.out.println(readData.indexOf("#"));
+            if(readData.indexOf("#")!=-1){
+                return ("this line has been deleted");
+            }else{
+                return readData;
+            }
         }
         catch (IOException e) {
             e.printStackTrace();
