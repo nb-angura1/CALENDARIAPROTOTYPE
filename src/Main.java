@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.util.Scanner;
 import java.lang.*;
 import java.io.*;
+import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Main");
@@ -20,6 +21,8 @@ public class Main {
         System.out.println("1)Enter new events");
         System.out.println("2)View current events");
         System.out.println("3)Exit.");
+        LocalDate myObj = LocalDate.now(); // Create a date object
+        System.out.println(myObj); // Display the current date
 
         int num = input.nextInt();
 

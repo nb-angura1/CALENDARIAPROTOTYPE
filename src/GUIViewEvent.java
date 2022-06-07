@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
 public class GUIViewEvent extends JPanel implements ActionListener {
     Database eventFile = new Database("N:\\computer science\\IB\\Java\\CALENDAR IA PROTOTYPE\\src\\events.txt", 21);
 
@@ -31,11 +34,8 @@ public class GUIViewEvent extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==view){
-            int length = eventFile.getRecordCount();
-            for(int x = 0;x<length;x++){
-                String viewEvent = eventFile.getRecord(x);
-                JOptionPane.showMessageDialog(this,viewEvent);
-            }
+            System.out.println("Showing all data");
+            FileHandler.readAllLines();
         }
     }
 }

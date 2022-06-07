@@ -10,6 +10,8 @@ public class GUIAddEvent extends JPanel implements ActionListener {
 
     JTextField event;
 
+    JTextField date;
+
     JButton confirm;
     public GUIAddEvent(int width, int height){
 
@@ -21,12 +23,17 @@ public class GUIAddEvent extends JPanel implements ActionListener {
         //disposes the window when closed without closing the entire program
         frame.setSize(300, 300);
 
-        event = new JTextField();
+        event = new JTextField("event goes here");
         event.setBounds(0,10,100,40);
         event.addActionListener(this);
 
+        date = new JTextField("date goes here"); //inputting the date as an integer (might change to JCalendar later)
+        //TODO, SIMPLE DATE FORMAT SO USER CAN INPUT A DATE
+        date.setBounds(0,60,100,40);
+        date.addActionListener(this);
+
         confirm = new JButton("confirm");
-        confirm.setBounds(0,50,100,40);
+        confirm.setBounds(0,120,100,40);
         confirm.addActionListener(this);
 
         frame.getContentPane().add(this);//canvas to hold the graphics
@@ -34,6 +41,7 @@ public class GUIAddEvent extends JPanel implements ActionListener {
         frame.setVisible(true);//displays the frame after adding the panel to avoid drawing errors
 
         add(event);
+        add(date);
         add(confirm);
     }
 
