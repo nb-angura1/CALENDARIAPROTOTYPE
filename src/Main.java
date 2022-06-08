@@ -1,13 +1,16 @@
 import javax.swing.*;
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
 import java.lang.*;
 import java.io.*;
 import java.time.LocalDate;
+import java.util.Date;
+
 public class Main {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Main");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        GUI calendarDisplay = new GUI(600,400);
+        GUI calendarDisplay = new GUI(600, 400);
         frame.add(calendarDisplay);
         frame.pack();
         frame.setVisible(true);
@@ -17,16 +20,26 @@ public class Main {
         Database eventFile = new Database("N:\\computer science\\IB\\Java\\CALENDAR IA PROTOTYPE\\src\\events.txt", 21); //creates a new event file with a set data length
         //gives user the option of what they would like to do
 
+        System.out.println("Input time in form dd-MM-yyyy:");
+        String dateInString = input.nextLine();
+        //TODO implement this into GUI add event and add into event file alongside events
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            Date date = sdf.parse(dateInString);
+            System.out.println(date);
+        }catch(java.text.ParseException e){
+            e.printStackTrace();
+        }
+
         System.out.println("What would you like to do?");
         System.out.println("1)Enter new events");
         System.out.println("2)View current events");
         System.out.println("3)Exit.");
-        LocalDate myObj = LocalDate.now(); // Create a date object
-        System.out.println(myObj); // Display the current date
+
 
         int num = input.nextInt();
 
-        if (num == 1) {
+        /*if (num == 1) {
             System.out.println("Enter 'no' in order to exit the program.");
             while (day) { //loops and keeps adding data until one day is completed
                 System.out.println("Enter the event to take place.");
@@ -50,6 +63,7 @@ public class Main {
             System.out.println("Finished.");
             System.exit(0);
         }
+    }*/
     }
 }
 //  String eevent = eventFile.getRecord(10);

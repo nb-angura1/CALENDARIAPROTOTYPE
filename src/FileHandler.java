@@ -68,14 +68,13 @@ public class FileHandler {
         }
         return count;
     }
-    public static void readAllLines(){
+    public static void readAllLines(){ //reads all the lines in the file line-by-line
         try {
             FileReader fr = new FileReader("N:\\computer science\\IB\\Java\\CALENDAR IA PROTOTYPE\\src\\events.txt");
             BufferedReader br = new BufferedReader(fr);
 
             String line = br.readLine();
             while (line != null) {
-
                 line = br.readLine();
                 System.out.println(line);
             }
