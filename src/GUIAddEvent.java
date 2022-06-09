@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class GUIAddEvent extends JPanel implements ActionListener {
     Database eventFile = new Database("N:\\computer science\\IB\\Java\\CALENDAR IA PROTOTYPE\\src\\events.txt", 21);
@@ -49,7 +51,17 @@ public class GUIAddEvent extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==confirm){
             String newEvent;
+            String eventDateInString;
+            Date eventDate = null;
             newEvent = event.getText();
+            eventDateInString = date.getText();
+            try {
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+                eventDate = sdf.parse(eventDateInString);
+            }catch(java.text.ParseException n){
+                n.printStackTrace();
+            }
+            System.out.println(eventDate);
             newEvent = Padder.rightPadding(newEvent, ' ', 20);
             eventFile.addRecord(newEvent);
             event.setText("");

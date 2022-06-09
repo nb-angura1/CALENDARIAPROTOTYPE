@@ -8,12 +8,15 @@ import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Main");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        GUI calendarDisplay = new GUI(600, 400);
-        frame.add(calendarDisplay);
-        frame.pack();
-        frame.setVisible(true);
+        JFrame frame1 = new JFrame("Login Frame");
+        frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        GUILogin myDisplay = new GUILogin(450,250,frame1);
+        frame1.add(myDisplay);
+        frame1.pack();
+        frame1.setVisible(true);
+        frame1.setResizable(false);
+
+
 
         boolean day = true;
         Scanner input = new Scanner(System.in);

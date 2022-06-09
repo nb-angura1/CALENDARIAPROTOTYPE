@@ -1,16 +1,21 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-public class GUI extends JPanel implements ActionListener {
+public class GUIMain extends JPanel implements ActionListener {
+    JFrame frame;
 
     JButton add;
+
     JButton remove;
+
     JButton view;
+
     JButton exit;
-    public GUI(int width, int height){
-        //GUI constructor
-        this.setPreferredSize(new Dimension (width, height));
-        setLayout(null);
+    public GUIMain(int width, int height){
+        frame = new JFrame("Main"); //initialising the window
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        //disposes the window when closed without closing the entire program
+        frame.setSize(300, 100);
 
         add = new JButton("add");
         add.setBounds(0,60,100,40);
@@ -27,6 +32,10 @@ public class GUI extends JPanel implements ActionListener {
         exit = new JButton("exit");
         exit.setBounds(360,60,100,40);
         exit.addActionListener(this);
+
+        frame.getContentPane().add(this);
+
+        frame.setVisible(true);
 
         add(add);
         add(remove);
