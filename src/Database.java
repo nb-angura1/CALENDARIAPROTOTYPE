@@ -1,8 +1,4 @@
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.io.FileWriter;
-import java.io.PrintWriter;
+import java.util.Date;
 
 public class Database { //database code, responsible for writing to, reading from and deleting records from the text file
 
@@ -17,26 +13,27 @@ public class Database { //database code, responsible for writing to, reading fro
         //countRecords();
     }
 
-    public void appendRecord(String data) {
+    public void appendRecord(String data, Date date) {
         // TODO: Pad the data to the correct record width
         int currentLength = data.length();
         int padLength = rowWidth - currentLength;
-        if (data.length() < 20) {
-            String result = Padder.rightPadding(data, ' ', 20);
-            FileHandler.appendLine(fileName, result);
+        if (data.length() < 50) {
+            String result = Padder.rightPadding(data, ' ', 50);
+            FileHandler.appendLine(fileName, result, date);
         } else {
-            FileHandler.appendLine(fileName, data);
+            FileHandler.appendLine(fileName, data, date);
         }
 
         // TODO: Report an error if the data is too long for the record
     }
 
     public void deleteRecord(int rowNumber) {
-      FileHandler.writeLineAt(fileName,"#",(20*rowNumber)+1); //putting hashtag in the wrong place, should be at the end of the line instead
+      FileHandler.writeLineAt(fileName,"#",49*rowNumber);
+      //TODO WRITING HASHTAG IN RIGHT PLACE, READ THROUGH EVERY CHAR AND IF THERE IS A HASHTAG IGNORE IT
     }
 
-    public void addRecord(String input) {
-        FileHandler.appendLine(fileName, input);
+    public void addRecord(String input, Date date) {
+        FileHandler.appendLine(fileName, input, date);
     }
 
     public String getRecord(int rowNumber) {

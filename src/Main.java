@@ -5,7 +5,7 @@ import java.lang.*;
 import java.io.*;
 import java.time.LocalDate;
 import java.util.Date;
-
+//TODO FIND A WAY TO READ THROUGH EACH CHAR IN THE FILE AND FIND A WAY TO ORGANISE BY MONTHS + OUTPUT
 public class Main {
     public static void main(String[] args) {
         JFrame frame1 = new JFrame("Login Frame");
@@ -25,7 +25,6 @@ public class Main {
 
         System.out.println("Input time in form dd-MM-yyyy:");
         String dateInString = input.nextLine();
-        //TODO implement this into GUI add event and add into event file alongside events
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
             Date date = sdf.parse(dateInString);

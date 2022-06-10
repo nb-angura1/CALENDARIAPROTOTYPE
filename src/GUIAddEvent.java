@@ -30,7 +30,7 @@ public class GUIAddEvent extends JPanel implements ActionListener {
         event.addActionListener(this);
 
         date = new JTextField("date goes here"); //inputting the date as an integer (might change to JCalendar later)
-        //TODO, SIMPLE DATE FORMAT SO USER CAN INPUT A DATE
+
         date.setBounds(0,60,100,40);
         date.addActionListener(this);
 
@@ -56,15 +56,16 @@ public class GUIAddEvent extends JPanel implements ActionListener {
             newEvent = event.getText();
             eventDateInString = date.getText();
             try {
-                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 eventDate = sdf.parse(eventDateInString);
             }catch(java.text.ParseException n){
                 n.printStackTrace();
             }
             System.out.println(eventDate);
             newEvent = Padder.rightPadding(newEvent, ' ', 20);
-            eventFile.addRecord(newEvent);
+            eventFile.addRecord(newEvent, eventDate);
             event.setText("");
+            date.setText("");
             JOptionPane.showMessageDialog(this,"Event successfully added!");
         }
     }

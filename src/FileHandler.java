@@ -4,15 +4,16 @@ import java.io.PrintWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.util.Date;
 
 
 public class FileHandler {
 
-    public static void appendLine(String fileName, String data) {
+    public static void appendLine(String fileName, String data, Date date) {
         // write text to end of the file
         boolean append = true;
         try (PrintWriter pr = new PrintWriter(new FileWriter(fileName, append))) {
-            pr.println(data);
+            pr.println(data + date);
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -26,7 +27,7 @@ public class FileHandler {
             rf.seek(start);
             readData = rf.readLine();
             //System.out.println(readData.indexOf("#"));
-            if(readData.indexOf("#")!=-1){
+            if(readData.indexOf("#")!=-1){ //TODO MAKE THIS CORRECTLY FLAG CERTAIN LINES TO NOT BE READ
                 return ("this line has been deleted");
             }else{
                 return readData;
