@@ -1,12 +1,12 @@
--Change around for date time
+-Change around for date time ✓
 -Inheritance, same thing but adding extra on top. Needs to behave differently.
 -Prove that it's needed. Client specific, less general.
 -Makes sense for a desktop app, analyse each event and give a summary afterwards. e.g "How long you spent doing x" (allows for linear search asw)
 -Add simple charting (if possible). (inheritance through how it is shown e.g bar graph, table etc.)
 -Series of fixed categories in event class.
 -NEXT: calendar log between database and events, arraylist of all events and method for adding and deleting stuff, move from database to calendar log.
-    -GUI component straight away
-    -Add new events/ see existing events.
+    -GUI component straight away ✓
+    -Add new events/ see existing events. ✓
     -Simple jframe form that lets someone select a date, see events on that date, or add new events to that date
     -something to render month (possible widget?)
     -database reads it back in

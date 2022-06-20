@@ -62,7 +62,6 @@ public class GUILogin extends JPanel implements ActionListener {
             userText = user.getText();
             passText = password.getText();
             if(userText.equalsIgnoreCase("nathan")&& passText.equalsIgnoreCase("333")){
-                JOptionPane.showMessageDialog(this,"Successful Login!!");
                 loginFrame.dispose();
                 GUIMain calendarDisplay = new GUIMain(600,400);
             }else{

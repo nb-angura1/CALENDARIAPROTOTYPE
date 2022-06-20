@@ -30,7 +30,6 @@ public class GUIAddEvent extends JPanel implements ActionListener {
         event.addActionListener(this);
 
         date = new JTextField("date goes here"); //inputting the date as an integer (might change to JCalendar later)
-
         date.setBounds(0,60,100,40);
         date.addActionListener(this);
 

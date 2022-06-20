@@ -69,15 +69,25 @@ public class FileHandler {
         }
         return count;
     }
-    public static void readAllLines(){ //reads all the lines in the file line-by-line
+    public static void readAllLines(String month){ //reads all the lines in the file line-by-line
         try {
+
             FileReader fr = new FileReader("N:\\computer science\\IB\\Java\\CALENDAR IA PROTOTYPE\\src\\events.txt");
             BufferedReader br = new BufferedReader(fr);
-
             String line = br.readLine();
             while (line != null) {
+                int index = line.indexOf('#');
+                int indexTwo = line.indexOf(month);
+                if(index > 0){
+                    System.out.print("");
+                }else{
+                    if(indexTwo > 0) {
+                        System.out.println(line);
+                    }else{
+                        System.out.println("wrong month");
+                    }
+                }
                 line = br.readLine();
-                System.out.println(line);
             }
         }
         catch (IOException e) {

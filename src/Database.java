@@ -14,7 +14,7 @@ public class Database { //database code, responsible for writing to, reading fro
     }
 
     public void appendRecord(String data, Date date) {
-        // TODO: Pad the data to the correct record width
+
         int currentLength = data.length();
         int padLength = rowWidth - currentLength;
         if (data.length() < 50) {
