@@ -29,10 +29,10 @@ public class Database { //database code, responsible for writing to, reading fro
 
     public void deleteRecord(int rowNumber) {
       FileHandler.writeLineAt(fileName,"#",49*rowNumber);
-      //TODO WRITING HASHTAG IN RIGHT PLACE, READ THROUGH EVERY CHAR AND IF THERE IS A HASHTAG IGNORE IT
     }
 
     public void addRecord(String input, Date date) {
+        //TODO polymorphism - overloading possible here (possibly adding in an optional specific time)
         FileHandler.appendLine(fileName, input, date);
     }
 

@@ -84,7 +84,7 @@ public class FileHandler {
                     if(indexTwo > 0) {
                         System.out.println(line);
                     }else{
-                        System.out.println("wrong month");
+                        System.out.print("");
                     }
                 }
                 line = br.readLine();

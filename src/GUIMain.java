@@ -50,6 +50,8 @@ public class GUIMain extends JPanel implements ActionListener {
             GUIRemoveEvent test2 = new GUIRemoveEvent(600,400);
         }else if(e.getSource()==view){
             GUIViewEvent test3 = new GUIViewEvent(600,400);
+        }else if(e.getSource()==exit){
+            frame.dispose();
         }
     }
 

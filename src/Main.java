@@ -1,11 +1,12 @@
 import javax.swing.*;
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+//TODO implement arraylist somehow
 import java.util.Scanner;
 import java.lang.*;
 import java.io.*;
 import java.time.LocalDate;
 import java.util.Date;
-//TODO FIND A WAY TO READ THROUGH EACH CHAR IN THE FILE AND FIND A WAY TO ORGANISE BY MONTHS + OUTPUT
+//TODO ADD IN STATISTICS?
 public class Main {
     public static void main(String[] args) {
         JFrame frame1 = new JFrame("Login Frame");
@@ -23,23 +24,7 @@ public class Main {
         Database eventFile = new Database("N:\\computer science\\IB\\Java\\CALENDAR IA PROTOTYPE\\src\\events.txt", 21); //creates a new event file with a set data length
         //gives user the option of what they would like to do
 
-        System.out.println("Input time in form dd-MM-yyyy:");
-        String dateInString = input.nextLine();
-        try {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-            Date date = sdf.parse(dateInString);
-            System.out.println(date);
-        }catch(java.text.ParseException e){
-            e.printStackTrace();
-        }
 
-        System.out.println("What would you like to do?");
-        System.out.println("1)Enter new events");
-        System.out.println("2)View current events");
-        System.out.println("3)Exit.");
-
-
-        int num = input.nextInt();
 
         /*if (num == 1) {
             System.out.println("Enter 'no' in order to exit the program.");

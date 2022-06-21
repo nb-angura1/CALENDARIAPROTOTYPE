@@ -29,7 +29,7 @@ public class GUIViewEvent extends JPanel implements ActionListener {
         view.addActionListener(this);
 
         date = new JTextField("month goes here (3 characters)"); //inputting the date as an integer (might change to JCalendar later)
-        date.setBounds(0,100,100,40);
+        date.setBounds(20,100,100,40);
         date.addActionListener(this);
 
         frame.getContentPane().add(this);//canvas to hold the graphics
@@ -42,7 +42,7 @@ public class GUIViewEvent extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==view){
-            String month = date.getText();
+            String month = (date.getText().substring(0, 3));
             System.out.println("Showing all data");
             FileHandler.readAllLines(month);
         }
