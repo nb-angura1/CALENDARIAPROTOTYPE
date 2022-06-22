@@ -69,12 +69,38 @@ public class FileHandler {
         }
         return count;
     }
+    public static void readAllLines(Date date){ //reads all the lines in the file line-by-line
+        //TODO OVERRIDE AND SEARCH BY DATE?
+        try {
+            FileReader fr = new FileReader("N:\\computer science\\IB\\Java\\CALENDAR IA PROTOTYPE\\src\\events.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String line = br.readLine();
+            while (line != null) {
+                int index = line.indexOf('#');
+                int indexTwo = line.indexOf(date);
+                if(index > 0){
+                    System.out.print("");
+                }else{
+                    if(indexTwo > 0) {
+                        System.out.println(line);
+                    }else{
+                        System.out.print("");
+                    }
+                }
+                line = br.readLine();
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public static void readAllLines(String month){ //reads all the lines in the file line-by-line
         try {
 
             FileReader fr = new FileReader("N:\\computer science\\IB\\Java\\CALENDAR IA PROTOTYPE\\src\\events.txt");
             BufferedReader br = new BufferedReader(fr);
             String line = br.readLine();
+            //linear search essentially
             while (line != null) {
                 int index = line.indexOf('#');
                 int indexTwo = line.indexOf(month);
