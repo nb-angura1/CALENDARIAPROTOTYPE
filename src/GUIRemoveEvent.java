@@ -51,6 +51,7 @@ public class GUIRemoveEvent extends JPanel implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e){
+        //TODO CHANGE IT TO CLEAR ALL EVENTS ON A CERTAIN DATE
         if(e.getSource()==confirm){
             String eventDateInString;
             Date removeDate = null;
@@ -61,6 +62,7 @@ public class GUIRemoveEvent extends JPanel implements ActionListener {
             }catch(java.text.ParseException n){
                 n.printStackTrace();
             }
+            System.out.println(removeDate);
             FileHandler.readAllLines(removeDate);
             JOptionPane.showMessageDialog(this,"Event successfully removed!");
         }

@@ -41,6 +41,7 @@ public class GUIViewEvent extends JPanel implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e){
+        //TODO VIEW BY MONTH/ VIEW BY DAY OF THE WEEK BUTTONS - FILEHANDLER.READALLLINES POLYMORPHISM
         if(e.getSource()==view){
             String month = (date.getText().substring(0, 3));
             System.out.println("Showing all data");

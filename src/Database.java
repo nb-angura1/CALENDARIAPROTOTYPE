@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Database { //database code, responsible for writing to, reading from and deleting records from the text file
@@ -29,6 +30,11 @@ public class Database { //database code, responsible for writing to, reading fro
 
     public void deleteRecord(int rowNumber) {
       FileHandler.writeLineAt(fileName,"#",49*rowNumber);
+    }
+    public void deleteRecord(Date date){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String dateAsString = sdf.format(date);
+        FileHandler.writeLineAt();
     }
 
     public void addRecord(String input, Date date) {
