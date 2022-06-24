@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.SQLOutput;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -34,8 +38,30 @@ public class Database { //database code, responsible for writing to, reading fro
     public void deleteRecord(Date date){
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         String dateAsString = sdf.format(date);
-        FileHandler.writeLineAt();
+        System.out.println("this is " + dateAsString);
+        //TODO PROBLEM IS THAT ITS GOING BACK TO A NORMAL DATE LIKE 24/06/2022
+        int count = 0;
+        try {
+            FileReader fr = new FileReader("N:\\computer science\\IB\\Java\\CALENDAR IA PROTOTYPE\\src\\events.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String line = br.readLine();
+            while (line != null) {
+                int index = line.indexOf(dateAsString);
+                if(index>0){
+                    System.out.print("yes");
+                    FileHandler.writeLineAt("N:\\computer science\\IB\\Java\\CALENDAR IA PROTOTYPE\\src\\events.txt","#",count);
+                }else{
+                    System.out.print("no");
+                }
+                line = br.readLine();
+                count +=1;
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 
     public void addRecord(String input, Date date) {
         //TODO polymorphism - overloading possible here (possibly adding in an optional specific time)

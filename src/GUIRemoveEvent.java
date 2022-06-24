@@ -53,7 +53,6 @@ public class GUIRemoveEvent extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e){
         //TODO CHANGE IT TO CLEAR ALL EVENTS ON A CERTAIN DATE
         if(e.getSource()==confirm){
-            String eventDateInString;
             Date removeDate = null;
             String removeDateInString = select.getText();
             try {
@@ -63,7 +62,7 @@ public class GUIRemoveEvent extends JPanel implements ActionListener {
                 n.printStackTrace();
             }
             System.out.println(removeDate);
-            FileHandler.readAllLines(removeDate);
+            eventFile.deleteRecord(removeDate);
             JOptionPane.showMessageDialog(this,"Event successfully removed!");
         }
     }
