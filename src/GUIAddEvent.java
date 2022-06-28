@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class GUIAddEvent extends JPanel implements ActionListener {
+    //TODO possibly add in multiple date formatters so user can enter dates in different ways
     Database eventFile = new Database("N:\\computer science\\IB\\Java\\CALENDAR IA PROTOTYPE\\src\\events.txt", 21);
 
     JFrame frame;

@@ -36,20 +36,20 @@ public class Database { //database code, responsible for writing to, reading fro
       FileHandler.writeLineAt(fileName,"#",49*rowNumber);
     }
     public void deleteRecord(Date date){
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("E MMM dd HH:mm:ss z yyyy");
         String dateAsString = sdf.format(date);
         System.out.println("this is " + dateAsString);
-        //TODO PROBLEM IS THAT ITS GOING BACK TO A NORMAL DATE LIKE 24/06/2022
         int count = 0;
         try {
             FileReader fr = new FileReader("N:\\computer science\\IB\\Java\\CALENDAR IA PROTOTYPE\\src\\events.txt");
             BufferedReader br = new BufferedReader(fr);
             String line = br.readLine();
             while (line != null) {
+                System.out.println(count);
                 int index = line.indexOf(dateAsString);
                 if(index>0){
                     System.out.print("yes");
-                    FileHandler.writeLineAt("N:\\computer science\\IB\\Java\\CALENDAR IA PROTOTYPE\\src\\events.txt","#",count);
+                    FileHandler.writeLineAt("N:\\computer science\\IB\\Java\\CALENDAR IA PROTOTYPE\\src\\events.txt","#",count *49);
                 }else{
                     System.out.print("no");
                 }

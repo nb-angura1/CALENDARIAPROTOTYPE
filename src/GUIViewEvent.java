@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 public class GUIViewEvent extends JPanel implements ActionListener {
     //TODO ALLOW CLIENT TO PUT IN SPECIFIC MONTH AND RETURN EVERY EVENT IN THAT MONTH
+    //TODO READ ALL DATES INTO AN ARRAYLIST THEN SORT - MORE COMPLEXITY + STATISTICS THING
     Database eventFile = new Database("N:\\computer science\\IB\\Java\\CALENDAR IA PROTOTYPE\\src\\events.txt", 21);
 
     JFrame frame;

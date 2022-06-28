@@ -38,8 +38,6 @@ public class GUIRemoveEvent extends JPanel implements ActionListener {
         confirm.addActionListener(this);
 
 
-
-
         frame.getContentPane().add(this);//canvas to hold the graphics
 
         frame.setVisible(true);//displays the frame after adding the panel to avoid drawing errors
