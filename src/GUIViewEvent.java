@@ -8,6 +8,7 @@ import java.io.FileWriter;
 public class GUIViewEvent extends JPanel implements ActionListener {
     //TODO ALLOW CLIENT TO PUT IN SPECIFIC MONTH AND RETURN EVERY EVENT IN THAT MONTH
     //TODO READ ALL DATES INTO AN ARRAYLIST THEN SORT - MORE COMPLEXITY + STATISTICS THING
+    //TODO ADD VIEW ALL BUTTON SORTED USING ARRAYLIST
     Database eventFile = new Database("N:\\computer science\\IB\\Java\\CALENDAR IA PROTOTYPE\\src\\events.txt", 21);
 
     JFrame frame;
@@ -43,6 +44,7 @@ public class GUIViewEvent extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e){
         //TODO VIEW BY MONTH/ VIEW BY DAY OF THE WEEK BUTTONS - FILEHANDLER.READALLLINES POLYMORPHISM
+        //TODO ARRAYLIST
         if(e.getSource()==view){
             String month = (date.getText().substring(0, 3));
             System.out.println("Showing all data");

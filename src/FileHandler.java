@@ -48,6 +48,7 @@ public class FileHandler {
         try (RandomAccessFile rf = new RandomAccessFile(fileName, "rws")) {
             rf.seek(start);
             rf.writeBytes(data);
+            System.out.println(start);
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -70,10 +71,34 @@ public class FileHandler {
         }
         return count;
     }
-
+    public static String[] readAllLines(){ //reads all the lines in the file line-by-line
+    //todo make this an array
+        String line1;
+        String[] line2 = new String[16];
+        try {
+            FileReader fr = new FileReader("N:\\computer science\\IB\\Java\\CALENDAR IA PROTOTYPE\\src\\events.txt");
+            BufferedReader br = new BufferedReader(fr);
+            int count = 0;
+            line1 = br.readLine();
+            //linear search essentially
+            while (line1 != null) {
+                int index = line1.indexOf('#');
+                if(index > 0){
+                }else {
+                    line2[count] =line1;
+                    System.out.println(line2[count]);
+                    count+=1;
+                }
+                line1 = br.readLine();
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        return line2;
+    }
     public static void readAllLines(String month){ //reads all the lines in the file line-by-line
         try {
-
             FileReader fr = new FileReader("N:\\computer science\\IB\\Java\\CALENDAR IA PROTOTYPE\\src\\events.txt");
             BufferedReader br = new BufferedReader(fr);
             String line = br.readLine();
@@ -97,4 +122,5 @@ public class FileHandler {
             e.printStackTrace();
         }
     }
+
 }
