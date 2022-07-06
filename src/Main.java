@@ -29,13 +29,16 @@ public class Main {
         String[] allEvents = FileHandler.readAllLines();
 
         Collections.addAll(dates,allEvents);
+            for(int counter = 0; counter<dates.size();counter++){
+                Sorter sort = new Sorter(dates.get(counter));
+                sort.getDate();
+            }
 
-        Sorter sort = new Sorter(dates.get(5));
-        sort.getDate();
 
         System.out.println("start");
         System.out.println(dates);
         System.out.println("end");
+        //TODO COLLECT ALL DATES, PUT IN ORDER, USE INDEX OF TO DISPLAY THEM BACK IN
     }
 
 }
