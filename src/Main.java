@@ -25,13 +25,14 @@ public class Main {
         Database eventFile = new Database("N:\\computer science\\IB\\Java\\CALENDAR IA PROTOTYPE\\src\\events.txt", 21); //creates a new event file with a set data length
         //todo arraylist - how to read everything from the text list back into the array?
 
-        ArrayList<String> dates = new ArrayList<String>();
-        String[] allEvents = FileHandler.readAllLines();
+        ArrayList<Date> dates = new ArrayList<Date>();
+        String[] allEvents = FileHandler.readAllLines(); //TODO MAYBE 2D ARRAY TO ALLOW EVENT TO BE STORED TOO?
 
         Collections.addAll(dates,allEvents);
             for(int counter = 0; counter<dates.size();counter++){
-                Sorter sort = new Sorter(dates.get(counter));
-                sort.getDate();
+                Sorter sort = new Sorter();
+                dates.add(counter,sort.getDate(allEvents[counter]));
+                //TODO SORT USING BUBBLE SORT - COMPLEXITY
             }
 
 
