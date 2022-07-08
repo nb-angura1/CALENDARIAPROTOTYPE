@@ -12,6 +12,8 @@ import java.io.IOException;
 //TODO ADD IN STATISTICS?
 public class Main {
     public static void main(String[] args) {
+
+
         JFrame frame1 = new JFrame("Login Frame");
         frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         GUILogin myDisplay = new GUILogin(450, 250, frame1);
@@ -28,18 +30,41 @@ public class Main {
         ArrayList<Date> dates = new ArrayList<Date>();
         String[] allEvents = FileHandler.readAllLines(); //TODO MAYBE 2D ARRAY TO ALLOW EVENT TO BE STORED TOO?
 
-        Collections.addAll(dates,allEvents);
             for(int counter = 0; counter<dates.size();counter++){
-                Sorter sort = new Sorter();
-                dates.add(counter,sort.getDate(allEvents[counter]));
+                dates.add(Sorter.getDate(allEvents[counter]));
                 //TODO SORT USING BUBBLE SORT - COMPLEXITY
+            }//TODO NOT WORKING BECAUSE NOTHING IS GOING INTO DATES
+
+        for (int n = 0; n < dates.size(); n++) {
+            System.out.println("outputting whats in dates");
+            System.out.println(n);
+            System.out.println(dates.get(n));
+        }
+        boolean swapped = true;
+        int sortedCount = 0;
+        Date swap1;
+        Date swap2;
+
+        while (swapped == true) {
+            swapped = false;
+            for (int i = 0; i < dates.size() - 1; i++) {
+                if (dates.get(i).compareTo(dates.get(i+1))>0 ) {
+                    swapped = true;
+                    swap1 = dates.get(i);
+                    swap2 = dates.get(i + 1);
+                    dates.set(i+1,swap1);
+                    dates.set(i,swap2);
+                }
             }
+            sortedCount++;
+        }
+        System.out.println("outputting dates in order");
+
+        System.out.println("The sorted count is " + sortedCount);
+    }
 
 
-        System.out.println("start");
-        System.out.println(dates);
-        System.out.println("end");
+
         //TODO COLLECT ALL DATES, PUT IN ORDER, USE INDEX OF TO DISPLAY THEM BACK IN
     }
 
-}

@@ -3,9 +3,8 @@ import java.util.Date;
 public class Sorter {
 
     public Sorter(){
-        ;
     }
-    public Date getDate(String record){
+    public static Date getDate(String record){
         String month = record.substring(24,27); //TODO convert to integers
         String day = record.substring(28,30);
         String year = record.substring(45,48);
