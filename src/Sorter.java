@@ -46,3 +46,4 @@ public class Sorter {
         return converted;
     }
 }
+//TODO TAKE SORTED CODE OUT OF MAIN AND PUT IN HERE - connect to view all events

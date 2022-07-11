@@ -29,17 +29,13 @@ public class Main {
 
         ArrayList<Date> dates = new ArrayList<Date>();
         String[] allEvents = FileHandler.readAllLines(); //TODO MAYBE 2D ARRAY TO ALLOW EVENT TO BE STORED TOO?
+        int counter = 0;
+        //TODO SORT USING BUBBLE SORT - COMPLEXITY
 
-            for(int counter = 0; counter<dates.size();counter++){
+            while(allEvents[counter]!=null){
                 dates.add(Sorter.getDate(allEvents[counter]));
-                //TODO SORT USING BUBBLE SORT - COMPLEXITY
-            }//TODO NOT WORKING BECAUSE NOTHING IS GOING INTO DATES
-
-        for (int n = 0; n < dates.size(); n++) {
-            System.out.println("outputting whats in dates");
-            System.out.println(n);
-            System.out.println(dates.get(n));
-        }
+                counter+=1;
+            }
         boolean swapped = true;
         int sortedCount = 0;
         Date swap1;
@@ -47,24 +43,27 @@ public class Main {
 
         while (swapped == true) {
             swapped = false;
-            for (int i = 0; i < dates.size() - 1; i++) {
-                if (dates.get(i).compareTo(dates.get(i+1))>0 ) {
+            for (int swapCounter = 0; swapCounter < dates.size() - 1; swapCounter++) {
+                if (dates.get(swapCounter).compareTo(dates.get(swapCounter+1))>0 ) {
                     swapped = true;
-                    swap1 = dates.get(i);
-                    swap2 = dates.get(i + 1);
-                    dates.set(i+1,swap1);
-                    dates.set(i,swap2);
+                    swap1 = dates.get(swapCounter);
+                    swap2 = dates.get(swapCounter + 1);
+                    dates.set(swapCounter+1,swap1);
+                    dates.set(swapCounter,swap2);
                 }
             }
             sortedCount++;
         }
         System.out.println("outputting dates in order");
 
+        for(int displayCount=0;displayCount<dates.size();displayCount++){
+            System.out.println(dates.get(displayCount));
+        }
         System.out.println("The sorted count is " + sortedCount);
     }
 
 
 
-        //TODO COLLECT ALL DATES, PUT IN ORDER, USE INDEX OF TO DISPLAY THEM BACK IN
+
     }
 
