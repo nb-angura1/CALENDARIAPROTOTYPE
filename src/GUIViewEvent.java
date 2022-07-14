@@ -37,7 +37,7 @@ public class GUIViewEvent extends JPanel implements ActionListener {
         date.addActionListener(this);
 
         viewAll = new JButton("view all");
-        viewAll.setBounds(40,10,100,40);
+        viewAll.setBounds(100,10,100,40);
         viewAll.addActionListener(this);
 
 
@@ -46,6 +46,7 @@ public class GUIViewEvent extends JPanel implements ActionListener {
         frame.setVisible(true);//displays the frame after adding the panel to avoid drawing errors
 
         add(viewMonth);
+        add(viewAll);
         add(date);
     }
     @Override
@@ -65,7 +66,34 @@ public class GUIViewEvent extends JPanel implements ActionListener {
             while(allEvents[counter]!=null){
                 dates.add(Sorter.getDate(allEvents[counter]));
                 counter+=1;
+                boolean swapped = true;
+                int sortedCount = 0;
+                Date swap1;
+                Date swap2;
+
+                while (swapped == true) {
+                    swapped = false;
+                    for (int swapCounter = 0; swapCounter < dates.size() - 1; swapCounter++) {
+                        if (dates.get(swapCounter).compareTo(dates.get(swapCounter+1))>0 ) {
+                            swapped = true;
+                            swap1 = dates.get(swapCounter);
+                            swap2 = dates.get(swapCounter + 1);
+                            dates.set(swapCounter+1,swap1);
+                            dates.set(swapCounter,swap2);
+                        }
+                    }
+                    sortedCount++;
+                }
+                System.out.println("outputting dates in order");
+
+                for(int displayCount=0;displayCount<dates.size();displayCount++){
+                    System.out.println(dates.get(displayCount));
+                    //TODO NEW LABEL CONTAINING ALL THE VALUES
+                }
+                System.out.println("The sorted count is " + sortedCount);
             }
+            GUIEvents show = new GUIEvents(600,400,dates);
+
 
         }
     }

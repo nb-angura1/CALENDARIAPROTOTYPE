@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.io.IOException;
 //TODO ADD IN STATISTICS?
+//todo add in editable events
 public class Main {
     public static void main(String[] args) {
 
@@ -30,36 +31,8 @@ public class Main {
         ArrayList<Date> dates = new ArrayList<Date>();
         String[] allEvents = FileHandler.readAllLines(); //TODO MAYBE 2D ARRAY TO ALLOW EVENT TO BE STORED TOO?
         int counter = 0;
-        //TODO SORT USING BUBBLE SORT - COMPLEXITY
+        //TODO PUT ALL IN A CLASS
 
-            while(allEvents[counter]!=null){
-                dates.add(Sorter.getDate(allEvents[counter]));
-                counter+=1;
-            }
-        boolean swapped = true;
-        int sortedCount = 0;
-        Date swap1;
-        Date swap2;
-
-        while (swapped == true) {
-            swapped = false;
-            for (int swapCounter = 0; swapCounter < dates.size() - 1; swapCounter++) {
-                if (dates.get(swapCounter).compareTo(dates.get(swapCounter+1))>0 ) {
-                    swapped = true;
-                    swap1 = dates.get(swapCounter);
-                    swap2 = dates.get(swapCounter + 1);
-                    dates.set(swapCounter+1,swap1);
-                    dates.set(swapCounter,swap2);
-                }
-            }
-            sortedCount++;
-        }
-        System.out.println("outputting dates in order");
-
-        for(int displayCount=0;displayCount<dates.size();displayCount++){
-            System.out.println(dates.get(displayCount));
-        }
-        System.out.println("The sorted count is " + sortedCount);
     }
 
 
