@@ -9,33 +9,29 @@ public class GUIEvents extends JPanel {
 
     ArrayList<Date> dates = new ArrayList<Date>();
 
-    JLabel label;
-
-    JLabel label2;
+    JLabel[] labels = new JLabel[30];
 
     public GUIEvents(int width, int height,ArrayList<Date> dates){
-
-        this.dates = dates;
-
         this.setPreferredSize(new Dimension(width, height));
         setLayout(null);
 
-        label2 = new JLabel("yes");
-        label2.setBounds(0,50,350,40);
+        frame = new JFrame("Showing"); //initialising the window
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        //disposes the window when closed without closing the entire program
+        frame.setSize(200, 1000);
 
-        /*for(int displayCount=0;displayCount<dates.size();displayCount++){
-            label = new JLabel("yes");
-            label.setBounds(0,50 * displayCount,350,40);
-            //System.out.println("view events class "+dates.get(displayCount));
-            label.setText(String.valueOf(dates.get(displayCount)));
-        }*/
+        this.dates = dates;
 
+        for(int displayCount=0;displayCount<dates.size()-1;displayCount++){
+                labels[displayCount]= new JLabel(dates.get(displayCount).toString());
+                labels[displayCount].setBounds(0,50*displayCount,350,40);
+        }
 
         frame.getContentPane().add(this);//canvas to hold the graphics
 
         frame.setVisible(true);//displays the frame after adding the panel to avoid drawing errors
-
-        //add(label);
-        add(label2);
+        for(int y=0;y<dates.size()-1;y++){
+            add(labels[y]);
+        }
     }
 }

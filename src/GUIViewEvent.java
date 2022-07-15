@@ -29,16 +29,18 @@ public class GUIViewEvent extends JPanel implements ActionListener {
         frame.setSize(300, 300);
 
         viewMonth = new JButton("view by month");
-        viewMonth.setBounds(0,10,100,40);
+        viewMonth.setBounds(0,10,150,40);
         viewMonth.addActionListener(this);
 
-        date = new JTextField("month goes here (3 characters)"); //inputting the date as an integer (might change to JCalendar later)
-        date.setBounds(20,100,100,40);
+        viewAll = new JButton("view all");
+        viewAll.setBounds(0,60,150,40);
+        viewAll.addActionListener(this);
+
+        date = new JTextField("which month?"); //inputting the date as an integer (might change to JCalendar later)
+        date.setBounds(0,110,100,40);
         date.addActionListener(this);
 
-        viewAll = new JButton("view all");
-        viewAll.setBounds(100,10,100,40);
-        viewAll.addActionListener(this);
+
 
 
         frame.getContentPane().add(this);//canvas to hold the graphics
@@ -93,8 +95,6 @@ public class GUIViewEvent extends JPanel implements ActionListener {
                 System.out.println("The sorted count is " + sortedCount);
             }
             GUIEvents show = new GUIEvents(600,400,dates);
-
-
         }
     }
 }
