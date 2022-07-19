@@ -24,7 +24,7 @@ public class GUIAddEvent extends JPanel implements ActionListener {
         frame = new JFrame("Add"); //initialising the window
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         //disposes the window when closed without closing the entire program
-        frame.setSize(300, 300);
+        frame.setSize(width, height);
 
         event = new JTextField("event goes here");
         event.setBounds(0,10,100,40);

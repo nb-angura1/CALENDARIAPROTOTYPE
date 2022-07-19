@@ -26,7 +26,7 @@ public class GUIViewEvent extends JPanel implements ActionListener {
         frame = new JFrame("View"); //initialising the window
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         //disposes the window when closed without closing the entire program
-        frame.setSize(300, 300);
+        frame.setSize(width, height);
 
         viewMonth = new JButton("view by month");
         viewMonth.setBounds(0,10,150,40);
@@ -37,11 +37,8 @@ public class GUIViewEvent extends JPanel implements ActionListener {
         viewAll.addActionListener(this);
 
         date = new JTextField("which month?"); //inputting the date as an integer (might change to JCalendar later)
-        date.setBounds(0,110,100,40);
+        date.setBounds(170,10,100,40);
         date.addActionListener(this);
-
-
-
 
         frame.getContentPane().add(this);//canvas to hold the graphics
 
@@ -56,9 +53,16 @@ public class GUIViewEvent extends JPanel implements ActionListener {
         //TODO VIEW BY MONTH/ VIEW BY DAY OF THE WEEK BUTTONS - FILEHANDLER.READALLLINES POLYMORPHISM
         //TODO ARRAYLIST
         if(e.getSource()== viewMonth){
-            String month = (date.getText().substring(0, 3));
-            System.out.println("Showing all data");
-            FileHandler.readAllLines(month);
+            if(date.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "You need to enter something in month.");
+            }else if(date.getText().length()<3) {
+                JOptionPane.showMessageDialog(null, "Enter a valid month.");
+                date.setText("");
+            }else{
+                String month = (date.getText().substring(0, 3));
+                System.out.println("Showing all data");
+                FileHandler.readAllLines(month);
+            }
         }else if(e.getSource()==viewAll){
             ArrayList<Date> dates = new ArrayList<Date>();
             String[] allEvents = FileHandler.readAllLines();
@@ -95,6 +99,7 @@ public class GUIViewEvent extends JPanel implements ActionListener {
                 System.out.println("The sorted count is " + sortedCount);
             }
             GUIEvents show = new GUIEvents(600,400,dates);
+            //TODO ALSO MAKE THIS FOR SHOW SPECIFIC EVENTS!
         }
     }
 }

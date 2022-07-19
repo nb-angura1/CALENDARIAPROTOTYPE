@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class GUILogin extends JPanel implements ActionListener {
 
-    JFrame loginFrame;
+    JFrame frame;
 
     JLabel bigTitle;
 
@@ -17,11 +17,14 @@ public class GUILogin extends JPanel implements ActionListener {
     JButton login;
 
     JButton exit;
-    public GUILogin(int width, int height, JFrame frame1){
+    public GUILogin(int width, int height){
         this.setPreferredSize(new Dimension(width,height));
         setLayout(null);
 
-        loginFrame = frame1;
+        frame = new JFrame("Login"); //initialising the window
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(width, height);
+
 
         bigTitle = new JLabel("LOGIN");
         bigTitle.setBounds(200,0,50,40);
@@ -46,6 +49,9 @@ public class GUILogin extends JPanel implements ActionListener {
         exit.setBounds(170,170,100,40);
         exit.addActionListener(this);
 
+        frame.getContentPane().add(this);//canvas to hold the graphics
+        frame.setVisible(true);//displays the frame after adding the panel to avoid drawing errors
+
         add(bigTitle);
         add(userTitle);
         add(user);
@@ -62,7 +68,10 @@ public class GUILogin extends JPanel implements ActionListener {
             userText = user.getText();
             passText = password.getText();
             if(userText.equalsIgnoreCase("nathan")&& passText.equalsIgnoreCase("333")){
-                loginFrame.dispose();
+                frame.dispose();
+                GUIMain calendarDisplay = new GUIMain(600,400);
+            }else if(userText.equalsIgnoreCase("client")&& passText.equalsIgnoreCase("london")) {
+                frame.dispose();
                 GUIMain calendarDisplay = new GUIMain(600,400);
             }else{
                 JOptionPane.showMessageDialog(this,"Unsuccessful Login!!");

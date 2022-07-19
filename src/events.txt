@@ -12,4 +12,5 @@ meeting with friend Wed Sep 28 00:00:00#BST 2022
 e42                 Fri Jul 21 00:00:0# BST 2023
 birthday            Sat May 08 00:00:00 BST 2055
 weird               Thu Aug 02 00:00:00 BST 2091
-school              Sat Jun 12 00:00:00 BST 2021
+school              Sat Jun 12 00:#0:00 BST 2021
+pool                Sat Aug 19 00:00:00 BST 2023

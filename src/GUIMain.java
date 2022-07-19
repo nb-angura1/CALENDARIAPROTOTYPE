@@ -52,6 +52,7 @@ public class GUIMain extends JPanel implements ActionListener {
             GUIViewEvent test3 = new GUIViewEvent(600,400);
         }else if(e.getSource()==exit){
             frame.dispose();
+            GUILogin loginPage = new GUILogin(450,300);
         }
     }
 

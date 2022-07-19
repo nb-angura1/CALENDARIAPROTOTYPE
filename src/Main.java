@@ -14,14 +14,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) {
 
-
-        JFrame frame1 = new JFrame("Login Frame");
-        frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        GUILogin myDisplay = new GUILogin(450, 250, frame1);
-        frame1.add(myDisplay);
-        frame1.pack();
-        frame1.setVisible(true);
-        frame1.setResizable(false);
+        GUILogin myDisplay = new GUILogin(450, 300);
 
         boolean day = true;
         Scanner input = new Scanner(System.in);
