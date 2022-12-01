@@ -19,6 +19,8 @@ public class GUIViewEvent extends JPanel implements ActionListener {
 
     JTextField date;
 
+    JLabel eventLabel;
+
     public GUIViewEvent(int width, int height){
         this.setPreferredSize(new Dimension (width, height));
         setLayout(null);
@@ -94,7 +96,8 @@ public class GUIViewEvent extends JPanel implements ActionListener {
 
                 for(int displayCount=0;displayCount<dates.size();displayCount++){
                     System.out.println(dates.get(displayCount));
-                    //TODO NEW LABEL CONTAINING ALL THE VALUES
+                    //TODO NEW JScrollPane CONTAINING ALL THE VALUES
+
                 }
                 System.out.println("The sorted count is " + sortedCount);
             }

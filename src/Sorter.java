@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Date;
 
 public class Sorter {
@@ -5,8 +6,9 @@ public class Sorter {
     public Sorter(){
     }
     public static Date getDate(String record){
+        System.out.println(record);
         String month = record.substring(24,27); //TODO convert to integers
-        String day = record.substring(28,30);
+        String day = record.substring(28,30); //TODO
         String year = record.substring(45,48);
 
         int day2 = Integer.parseInt(day); //TODO CONTINUE THIS, CONVERTING TO INTEGER

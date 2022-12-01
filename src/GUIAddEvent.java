@@ -50,15 +50,17 @@ public class GUIAddEvent extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==confirm){
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            sdf.setLenient(false);
             String newEvent;
             String eventDateInString;
             Date eventDate = null;
             newEvent = event.getText();
             eventDateInString = date.getText();
             try {
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 eventDate = sdf.parse(eventDateInString);
             }catch(java.text.ParseException n){
+                System.out.println("This data is NOT valid!!!");
                 n.printStackTrace();
             }
             System.out.println(eventDate);

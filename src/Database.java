@@ -35,6 +35,7 @@ public class Database { //database code, responsible for writing to, reading fro
     public void deleteRecord(int rowNumber) {
       FileHandler.writeLineAt(fileName,"#",49*rowNumber);
     }
+
     public void deleteRecord(Date date){
         SimpleDateFormat sdf = new SimpleDateFormat("E MMM dd HH:mm:ss z yyyy");
         String dateAsString = sdf.format(date);

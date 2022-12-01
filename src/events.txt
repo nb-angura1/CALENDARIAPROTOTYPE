@@ -13,4 +13,11 @@ e42                 Fri Jul 21 00:00:0# BST 2023
 birthday            Sat May 08 00:00:00 BST 2055
 weird               Thu Aug 02 00:00:00 BST 2091
 school              Sat Jun 12 00:#0:00 BST 2021
-pool                Sat Aug 19 00:00:00 BST 2023
+pool                Sat Aug 19 00#00:00 BST 2023
+home                Mon Sep 05 00:00:00 BST 2022
+hometime            Mon Sep 12 00:00:00 BST 2022
+homework            Tue Sep 12 00:00:00 BST 2023
+sch#ol again        Thu Jun 23 00:00:00 BST 2022
+sc#ool              Mon Nov 28 00:00:00 GMT 2022
+something           Fri Oct 22 00:00:00 GMT 23
+new event           null

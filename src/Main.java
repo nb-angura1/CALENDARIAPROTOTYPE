@@ -11,6 +11,7 @@ import java.util.Date;
 import java.io.IOException;
 //TODO ADD IN STATISTICS?
 //todo add in editable events
+//TODO write everything into labels so it can be shown in the Gui
 public class Main {
     public static void main(String[] args) {
 
