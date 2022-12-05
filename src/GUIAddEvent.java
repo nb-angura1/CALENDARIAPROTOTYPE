@@ -57,18 +57,24 @@ public class GUIAddEvent extends JPanel implements ActionListener {
             Date eventDate = null;
             newEvent = event.getText();
             eventDateInString = date.getText();
-            try {
-                eventDate = sdf.parse(eventDateInString);
-            }catch(java.text.ParseException n){
-                System.out.println("This data is NOT valid!!!");
-                n.printStackTrace();
+           boolean flag = false;
+                try {
+                    eventDate = sdf.parse(eventDateInString);
+                    flag = true;
+                }catch(java.text.ParseException n){
+                    JOptionPane.showMessageDialog(this,"Invalid date!");
+                }
+
+                if (flag){
+                    System.out.println(eventDate);
+                    newEvent = Padder.rightPadding(newEvent, ' ', 20);
+                    eventFile.addRecord(newEvent, eventDate);
+                    event.setText("");
+                    date.setText("");
+                    JOptionPane.showMessageDialog(this,"Event successfully added!");
+
             }
-            System.out.println(eventDate);
-            newEvent = Padder.rightPadding(newEvent, ' ', 20);
-            eventFile.addRecord(newEvent, eventDate);
-            event.setText("");
-            date.setText("");
-            JOptionPane.showMessageDialog(this,"Event successfully added!");
+
         }
     }
 }

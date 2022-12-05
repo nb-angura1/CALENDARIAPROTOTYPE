@@ -117,6 +117,8 @@ public class FileHandler {
         catch (IOException e) {
             e.printStackTrace();
         }
+
+        //todo possibly another filehandler class???? - needed to actually have the events with their date
     }
 
 }

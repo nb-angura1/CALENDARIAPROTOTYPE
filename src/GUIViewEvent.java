@@ -52,8 +52,6 @@ public class GUIViewEvent extends JPanel implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e){
-        //TODO VIEW BY MONTH/ VIEW BY DAY OF THE WEEK BUTTONS - FILEHANDLER.READALLLINES POLYMORPHISM
-        //TODO ARRAYLIST
         if(e.getSource()== viewMonth){
             if(date.getText().equals("")){
                 JOptionPane.showMessageDialog(null, "You need to enter something in month.");
@@ -64,6 +62,7 @@ public class GUIViewEvent extends JPanel implements ActionListener {
                 String month = (date.getText().substring(0, 3));
                 System.out.println("Showing all data");
                 FileHandler.readAllLines(month);
+                //TODO make this show on gui
             }
         }else if(e.getSource()==viewAll){
             ArrayList<Date> dates = new ArrayList<Date>();
@@ -95,6 +94,7 @@ public class GUIViewEvent extends JPanel implements ActionListener {
                 System.out.println("outputting dates in order");
 
                 for(int displayCount=0;displayCount<dates.size();displayCount++){
+
                     System.out.println(dates.get(displayCount));
                     //TODO NEW JScrollPane CONTAINING ALL THE VALUES
 
