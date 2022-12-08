@@ -50,7 +50,8 @@ public class GUIAddEvent extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==confirm){
-            boolean flag = false;
+            boolean flag1 = false;
+            boolean flag2 = false;
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             sdf.setLenient(false);
             String newEvent;
@@ -60,16 +61,19 @@ public class GUIAddEvent extends JPanel implements ActionListener {
             if(newEvent.length()>20){
                 JOptionPane.showMessageDialog(this,"Invalid event!");
                 event.setText("");
+            }else{
+                flag1=true;
             }
-            eventDateInString = date.getText();
+            if (flag1){
+                eventDateInString = date.getText();
                 try {
                     eventDate = sdf.parse(eventDateInString);
-                    flag = true;
+                    flag2 = true;
                 }catch(java.text.ParseException n){
                     JOptionPane.showMessageDialog(this,"Invalid date!");
                 }
 
-                if (flag){
+                if (flag2){
                     System.out.println(eventDate);
                     newEvent = Padder.rightPadding(newEvent, ' ', 20);
                     eventFile.addRecord(newEvent, eventDate);
@@ -77,7 +81,9 @@ public class GUIAddEvent extends JPanel implements ActionListener {
                     date.setText("");
                     JOptionPane.showMessageDialog(this,"Event successfully added!");
 
+                }
             }
+
 
         }
     }

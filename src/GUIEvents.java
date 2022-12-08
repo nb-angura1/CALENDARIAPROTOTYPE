@@ -7,11 +7,13 @@ import java.util.Date;
 public class GUIEvents extends JPanel {
     JFrame frame;
 
-    ArrayList<Date> dates = new ArrayList<Date>();
+    ArrayList<Date> dates;
 
-    JLabel[] labels = new JLabel[30];
+    ArrayList<String> sortedEvents;
 
-    public GUIEvents(int width, int height,ArrayList<Date> dates){
+    JLabel[] labels = new JLabel[999];
+
+    public GUIEvents(int width, int height,ArrayList<Date> dates, ArrayList<String> sortedEvents){
         this.setPreferredSize(new Dimension(width, height));
         setLayout(null);
 
@@ -22,6 +24,7 @@ public class GUIEvents extends JPanel {
 
         this.dates = dates;
 
+        //todo need to add in sorted events to this
         for(int displayCount=0;displayCount<dates.size()-1;displayCount++){
                 labels[displayCount]= new JLabel(dates.get(displayCount).toString());
                 labels[displayCount].setBounds(0,50*displayCount,350,40);

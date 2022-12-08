@@ -66,17 +66,21 @@ public class GUIViewEvent extends JPanel implements ActionListener {
             }
         }else if(e.getSource()==viewAll){
             ArrayList<Date> dates = new ArrayList<Date>();
+            ArrayList<String> sortEvents = new ArrayList<String>();
             String[] allEvents = FileHandler.readAllLines();
 
             int counter = 0;
 
             while(allEvents[counter]!=null){
                 dates.add(Sorter.getDate(allEvents[counter]));
+                sortEvents.add(allEvents[counter]);
                 counter+=1;
                 boolean swapped = true;
                 int sortedCount = 0;
                 Date swap1;
                 Date swap2;
+                String swap3;
+                String swap4;
 
                 while (swapped == true) {
                     swapped = false;
@@ -85,8 +89,12 @@ public class GUIViewEvent extends JPanel implements ActionListener {
                             swapped = true;
                             swap1 = dates.get(swapCounter);
                             swap2 = dates.get(swapCounter + 1);
+                            swap3 = sortEvents.get(swapCounter);
+                            swap4 = sortEvents.get(swapCounter +1);
                             dates.set(swapCounter+1,swap1);
                             dates.set(swapCounter,swap2);
+                            sortEvents.set(swapCounter+1,swap3);
+                            sortEvents.set(swapCounter, swap4);
                         }
                     }
                     sortedCount++;
@@ -96,12 +104,13 @@ public class GUIViewEvent extends JPanel implements ActionListener {
                 for(int displayCount=0;displayCount<dates.size();displayCount++){
 
                     System.out.println(dates.get(displayCount));
+                    System.out.println(sortEvents.get(displayCount));
                     //TODO NEW JScrollPane CONTAINING ALL THE VALUES
 
                 }
                 System.out.println("The sorted count is " + sortedCount);
             }
-            GUIEvents show = new GUIEvents(600,400,dates);
+            GUIEvents show = new GUIEvents(600,400,dates, sortEvents);
             //TODO ALSO MAKE THIS FOR SHOW SPECIFIC EVENTS!
         }
     }
